@@ -1,0 +1,119 @@
+nav ul {
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-dark);
+  padding: 10px 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  font-weight: bold;
+  color: var(--text-light);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: var(--hover-primary-color);
+  outline: none;
+}
+
+/* Active tab style */
+nav ul li a.active {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Section styles adjustment */
+section {
+  background-color: var(--text-light);
+  color: var(--text-dark);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles enhancement */
+button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: var(--hover-primary-color);
+}
+
+/* Footer styles adjustment */
+footer {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  section {
+    width: 95%;
+  }
+}
+/* Form đăng ký sử dụng PIN */
+#pinRegisterForm {
+  background-color: var(--text-light);
+  color: var(--text-dark);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pinRegisterForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#pinRegisterForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#pinRegisterForm button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#pinRegisterForm button:hover {
+  background-color: var(--hover-primary-color);
+}
