@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ứng dụng Quản lý Tài chính</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <ht
+    style="
+      background-image: url('Anh.jpg');
+      background-size: cover;
+    "
+  >
+    <div class="login-container">
+      <div id="loginRegisterBox">
+        <!-- Đặt form đăng ký trước -->
+        <form id="registerForm" class="auth-form">
+          <h2>Register</h2>
+          <input
+            type="text"
+            id="newUsername"
+            placeholder="Enter new username"
+            required
+            
+          />
+        
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Enter new password"
+            required
+          /> 
+          
+          <button type="submit">Register</button>
+          <p class="auth-switch">
+            Already have an account? <a href="#" id="showLoginForm">Login</a>
+          </p>
+        </form>
+        <!-- Form đăng nhập sau và ban đầu được ẩn -->
+        <form id="loginForm" class="auth-form hidden">
+          <h2>Login</h2>
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <div class="checkbox-container">
+            <input type="checkbox" id="rememberMe" />
+            <label for="rememberMe">Remember me</label>
+          </div>
+          <button type="submit">Login</button>
+          <p class="auth-switch">
+            Don't have an account?
+            <a href="#" id="showRegisterForm">Register</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  <script src="script1.js"></script>
+</ht
