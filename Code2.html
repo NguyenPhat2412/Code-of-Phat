@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles1.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Ứng Dụng Quản Lý Tài Chính</h1>
+      <nav>
+        <ul>
+          <li><a href="#personal">Cá nhân</a></li>
+          <li><a href="#organization">Tổ chức</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="personal">
+      <h2>Cá nhân</h2>
+      <div class="button-container">
+        <button id="savingsBtn">Tiết kiệm</button>
+        <button id="investmentBtn">Đầu tư</button>
+        <button id="spendingBtn">Chi tiêu</button>
+        <section id="spending">
+          <h2>Chi tiêu</h2>
+          <div class="button-container">
+            <button id="createFundBtn">Tạo quỹ mới</button>
+            <div id="fundList"></div>
+          </div>
+        </section>
+        <button id="interactionBtn">Tương tác</button>
+      </div>
+      <div id="personalContent"></div>
+    </section>
+    <section id="organization" class="hidden">
+      <h2>Tổ chức</h2>
+      <div class="button-container">
+        <button id="payrollBtn">Chi trả lương</button>
+        <button id="expensesBtn">Đề xuất chi phí</button>
+        <button id="profitBtn">Tính toán lợi nhuận</button>
+        <button id="feeBtn">Thu phí</button>
+      </div>
+      <div id="organizationContent"></div>
+    </section>
+    <footer>
+      <p>&copy; 2024 Ứng dụng Quản lý Tài chính</p>
+    </footer>
+    <footer>
+      <p>Contact us: 23110209@st.vju.ac.vn</p>
+      <div>
+        Follow us on social media:
+        <a href="https://www.facebook.com/profile.php?id=100021207152190"
+          >Facebook</a
+        >
+        <a href="https://www.tiktok.com/@riomaster2412">Tiktok</a>
+        <a href="https://www.instagram.com/phatphit2412/">Instagram</a>
+      </div>
+    </footer>
+    <!-- Form đăng ký sử dụng PIN -->
+    <div id="pinRegisterForm" style="display: none">
+      <h3>Đăng ký sử dụng PIN</h3>
+      <label for="pin">Nhập PIN mới:</label>
+      <input type="password" id="pin" placeholder="Nhập PIN" />
+      <label for="confirmPin">Xác nhận PIN:</label>
+      <input type="password" id="confirmPin" placeholder="Xác nhận PIN" />
+      <button id="registerPinBtn">Đăng ký</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
