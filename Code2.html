@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="styles1.css" />
+    <title>FMA</title>
+    <link rel="stylesheet" href="styles2.css" />
+    <link rel="icon" href="Dollar_sign_capitalism_logo.ico" />
   </head>
   <body>
     <header>
@@ -22,16 +23,16 @@
         <button id="savingsBtn">Tiết kiệm</button>
         <button id="investmentBtn">Đầu tư</button>
         <button id="spendingBtn">Chi tiêu</button>
-        <section id="spending">
-          <h2>Chi tiêu</h2>
-          <div class="button-container">
-            <button id="createFundBtn">Tạo quỹ mới</button>
-            <div id="fundList"></div>
-          </div>
-        </section>
         <button id="interactionBtn">Tương tác</button>
       </div>
       <div id="personalContent"></div>
+      <section id="spending" style="display: none">
+        <h2>Chi tiêu</h2>
+        <div class="button-container">
+          <button id="createFundBtn">Tạo quỹ mới</button>
+          <div id="fundList"></div>
+        </div>
+      </section>
     </section>
     <section id="organization" class="hidden">
       <h2>Tổ chức</h2>
@@ -66,6 +67,18 @@
       <input type="password" id="confirmPin" placeholder="Xác nhận PIN" />
       <button id="registerPinBtn">Đăng ký</button>
     </div>
-    <script src="script.js"></script>
+    <img
+      src="271px-Logo_vju.svg.png"
+      alt=""
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: auto;
+      "
+    />
+    <script src="script2.js"></script>
   </body>
 </html>
+
