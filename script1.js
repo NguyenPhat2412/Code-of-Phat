@@ -1,57 +1,91 @@
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const registerForm = document.getElementById("registerForm");
-  const username = document.getElementById("username");
-  const password = document.getElementById("password");
-  const newUsername = document.getElementById("newUsername");
-  const newPassword = document.getElementById("newPassword");
+  const showLoginFormLink = document.getElementById("showLoginForm");
+  const showRegisterFormLink = document.getElementById("showRegisterForm");
+  const alertBox = document.getElementById("alertBox");
+  const alertMessage = document.getElementById("alertMessage");
+  const closeAlertBtn = document.getElementById("closeAlertBtn");
 
-  // Ban đầu chỉ hiển thị form đăng ký
+  // Ẩn form đăng nhập ban đầu
   loginForm.style.display = "none";
-  registerForm.style.display = "block";
+
+  // Xử lý sự kiện khi click vào liên kết "Login"
+  showLoginFormLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    loginForm.style.display = "block";
+    registerForm.style.display = "none";
+    hideAlert(); // Ẩn thông báo khi chuyển sang form đăng nhập
+  });
+
+  // Xử lý sự kiện khi click vào liên kết "Register"
+  showRegisterFormLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    loginForm.style.display = "none";
+    registerForm.style.display = "block";
+    hideAlert(); // Ẩn thông báo khi chuyển sang form đăng ký
+  });
+
+  // Hàm đăng ký người dùng
+  function registerUser(username, password) {
+    // Kiểm tra xem username đã tồn tại chưa
+    if (localStorage.getItem(username) !== null) {
+      showAlert(
+        "Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác."
+      );
+      return false; // Username đã tồn tại
+    } else {
+      // Lưu thông tin người dùng vào localStorage
+      localStorage.setItem(username, password);
+      showAlert("Đăng ký thành công. Vui lòng đăng nhập.");
+      return true; // Đăng ký thành công
+    }
+  }
+
+  // Hàm kiểm tra thông tin đăng nhập
+  function checkLogin(username, password) {
+    // Kiểm tra xem username có tồn tại và password có đúng không
+    return localStorage.getItem(username) === password;
+  }
 
   // Xử lý sự kiện khi form đăng ký được submit
   registerForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    if (registerUser(newUsername.value, newPassword.value)) {
-      alert("Đăng ký thành công. Vui lòng đăng nhập.");
-      // Lưu thông tin đăng nhập vào localStorage
-      localStorage.setItem("registeredUsername", newUsername.value);
-      localStorage.setItem("registeredPassword", newPassword.value);
-      // Chuyển đổi hiển thị giữa form đăng ký và đăng nhập
-      registerForm.style.display = "none";
+    const newUsername = document.getElementById("newUsername").value;
+    const newPassword = document.getElementById("newPassword").value;
+    if (registerUser(newUsername, newPassword)) {
+      // Đăng ký thành công, hiển thị form đăng nhập
       loginForm.style.display = "block";
-    } else {
-      alert("Không thể đăng ký. Tên người dùng có thể đã tồn tại.");
+      registerForm.style.display = "none";
     }
   });
 
   // Xử lý sự kiện khi form đăng nhập được submit
   loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    if (checkLogin(username.value, password.value)) {
-      // Đăng nhập thành công, chuyển hướng đến trang cá nhân và tổ chức
-      window.location.href = "dashboard.html"; // Giả sử 'dashboard.html' là trang chứa các phần cá nhân và tổ chức
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    if (checkLogin(username, password)) {
+      // Đăng nhập thành công, chuyển hướng đến trang dashboard
+      window.location.href = "dashboard.html";
     } else {
-      alert("Thông tin đăng nhập không chính xác.");
+      showAlert("Thông tin đăng nhập không chính xác.");
     }
   });
 
-  // Hàm kiểm tra thông tin đăng nhập
-  function checkLogin(username, password) {
-    return (
-      username === localStorage.getItem("registeredUsername") &&
-      password === localStorage.getItem("registeredPassword")
-    );
+  // Hiển thị thông báo
+  function showAlert(messageText) {
+    alertMessage.innerText = messageText;
+    alertBox.style.display = "block";
   }
 
-  // Hàm đăng ký người dùng
-  function registerUser(username, password) {
-    // Kiểm tra xem người dùng đã tồn tại chưa
-    if (localStorage.getItem("registeredUsername") === username) {
-      return false; // Người dùng đã tồn tại
-    } else {
-      return true; // Đăng ký thành công
-    }
+  // Ẩn thông báo
+  function hideAlert() {
+    alertBox.style.display = "none";
   }
+
+  // Xử lý sự kiện click vào nút đóng thông báo
+  closeAlertBtn.addEventListener("click", function () {
+    hideAlert();
+  });
 });
