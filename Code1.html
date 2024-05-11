@@ -3,36 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ứng dụng Quản lý Tài chính</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>FMA</title>
+    <link rel="stylesheet" href="styles1.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Dollar_sign_capitalism_logo.ico" />
   </head>
-  <ht
-    style="
-      background-image: url('Anh.jpg');
-      background-size: cover;
-    "
-  >
+  <body>
     <div class="login-container">
       <div id="loginRegisterBox">
         <!-- Đặt form đăng ký trước -->
         <form id="registerForm" class="auth-form">
           <h2>Register</h2>
-          <input
-            type="text"
-            id="newUsername"
-            placeholder="Enter new username"
-            required
-            
-          />
-        
-          <input
-            type="password"
-            id="newPassword"
-            placeholder="Enter new password"
-            required
-          /> 
-          
+          <div>
+            <input
+              type="text"
+              id="newUsername"
+              placeholder="Enter new username"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="newPassword"
+              placeholder="Enter new password"
+              required
+            />
+          </div>
           <button type="submit">Register</button>
           <p class="auth-switch">
             Already have an account? <a href="#" id="showLoginForm">Login</a>
@@ -41,16 +41,16 @@
         <!-- Form đăng nhập sau và ban đầu được ẩn -->
         <form id="loginForm" class="auth-form hidden">
           <h2>Login</h2>
-          <input type="text" id="username" placeholder="Username" required />
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-          <div class="checkbox-container">
-            <input type="checkbox" id="rememberMe" />
-            <label for="rememberMe">Remember me</label>
+          <div>
+            <input type="text" id="username" placeholder="Username" required />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
           </div>
           <button type="submit">Login</button>
           <p class="auth-switch">
@@ -60,5 +60,24 @@
         </form>
       </div>
     </div>
-  <script src="script1.js"></script>
-</ht
+    <p id="message" class="auth-message"></p>
+    <div id="alertBox" class="alert-box">
+      <span id="alertMessage" class="alert-message"></span>
+      <button id="closeAlertBtn" class="close-alert-btn">&times;</button>
+    </div>
+    <!-- Chèn logo vào bên phải -->
+    <img
+      src="271px-Logo_vju.svg.png"
+      alt=""
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: auto;
+      "
+    />
+    <script src="script1.js"></script>
+  </body>
+</html>
+
