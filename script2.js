@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const fundList = document.getElementById("fundList");
 
   // Sự kiện khi nhấn nút tạo quỹ mới
-  createFundBtn.addEventListener("click", createNewFund);
 
   // Lấy dữ liệu quỹ từ local storage
   const funds = getFundData();
@@ -38,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
   investmentBtn.addEventListener("click", function () {
     displayInvestment();
   });
-
   // Sự kiện khi nhấn nút Chi tiêu
   spendingBtn.addEventListener("click", function () {
+    createFundBtn.addEventListener("click", displaySpending);
     displaySpending();
   });
 
@@ -85,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
       activeTabContent.style.display = "block";
     });
   });
+
   const loginForm = document.getElementById("loginForm");
   const registerForm = document.getElementById("registerForm");
   const username = document.getElementById("username");
@@ -199,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <input type="text" id="fundPurpose" placeholder="Nhập mục đích">
         <button id="createFundConfirmBtn">Tạo quỹ</button>
       </div>`;
+    const fundList = document.getElementById("fundList");
 
     fundList.innerHTML = newFundForm;
 
@@ -332,15 +333,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hàm hiển thị phần chi tiêu
   function displaySpending() {
-    personalContent.innerHTML =
-      "<p>Chức năng Chi tiêu: Bạn có thể phân bổ tiền cho các mục đích sinh hoạt hàng ngày.</p>";
+    personalContent.innerHTML = `
+    <h2>Chi tiêu</h2>
+    <div class="button-container">
+      <button id="createFundBtn">Tạo quỹ mới</button>
+      <div id="fundList"></div>
+    </div>
+  `;
+    // Sự kiện khi nhấn nút tạo quỹ mới
+    const createFundBtn = document.getElementById("createFundBtn");
+    createFundBtn.addEventListener("click", createNewFund);
   }
 
   // Hàm hiển thị phần tương tác
   function displayInteraction() {
-    personalContent.innerHTML =
-      "<p>Chức năng Tương tác: Bạn có thể xem cách thực hiện quản lý quỹ của người dùng khác. Bạn cũng có thể copy phương thức của họ, nhưng cần trả phí hoa hồng.</p>" +
-      "<p>Có thể gợi ý sử dụng quỹ dựa trên dữ liệu từ những người dùng có quỹ ngày càng phát triển.</p>";
+    personalContent.innerHTML = `<h3>Chức năng Tương tác</h3>
+    <p>Xem cách thực hiện quản lý quỹ của người dùng khác và gợi ý sử dụng dựa trên dữ liệu từ người dùng khác.</p>
+    <button id="viewUserBtn">Xem người dùng khác</button>
+    <button id="suggestBtn">Gợi ý sử dụng quỹ</button>`;
+    const viewUserBtn = document.getElementById("viewUserBtn");
+    viewUserBtn.addEventListener("click", function () {
+      viewOtherUsers();
+    });
+
+    const suggestBtn = document.getElementById("suggestBtn");
+    suggestBtn.addEventListener("click", function () {
+      suggestFundUsage();
+    });
+  }
+  function viewOtherUsers() {
+    // Đoạn mã này có thể sẽ thực hiện xem cách quản lý quỹ của người dùng khác và hiển thị kết quả
+    const userInteractionResult =
+      "Xem cách thực hiện quản lý quỹ của người dùng khác sẽ được hiển thị ở đây.";
+    personalContent.innerHTML += `<p>${userInteractionResult}</p>`;
+  }
+
+  // Hàm gợi ý sử dụng quỹ
+  function suggestFundUsage() {
+    // Đoạn mã này có thể sẽ thực hiện gợi ý sử dụng quỹ dựa trên dữ liệu từ người dùng khác và hiển thị kết quả
+    const fundSuggestionResult =
+      "Gợi ý sử dụng quỹ dựa trên dữ liệu từ người dùng khác sẽ được hiển thị ở đây.";
+    personalContent.innerHTML += `<p>${fundSuggestionResult}</p>`;
   }
 
   // Hàm hiển thị phần chi trả lương
